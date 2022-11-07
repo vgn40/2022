@@ -20,13 +20,15 @@ Console.WriteLine($"{totalCentAsDouble} cent is equal to... ");
         int silverCoinValue = 5;
 
     // convert gold coins
-    double goldCalculation = Math.Floor(totalCentAsDouble / 10);
+    double goldCalculation = Math.Floor(totalCentAsDouble / goldCoinValue);
     // remainder of cents
-    double remainderOfCoins = goldCalculation % goldCoinValue;
+    double remainderOfCoins = totalCentAsDouble % goldCoinValue;
 
     // covert remainder to silver
-    double silverCalculation = remainderOfCoins % silverCoinValue;
-    double remainder = remainderOfCoins;
+    double silverCalculation = Math.Floor(remainderOfCoins / silverCoinValue);
+    
+    // remaining copper
+    double remainder = remainderOfCoins % silverCoinValue;
     
 Console.WriteLine($"{goldCalculation} gold coins \r\n{silverCalculation} silver coins \r\n{remainder} copper coins");
     }
